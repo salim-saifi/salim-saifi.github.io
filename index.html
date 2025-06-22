@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SM-Falah-e-Millat Trust | Serving Humanity</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #2c5530, #4a7c59);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .top-bar {
+            background: rgba(0,0,0,0.1);
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .language-selector a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            transition: color 0.3s;
+        }
+
+        .language-selector a:hover {
+            color: #90ee90;
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #2c5530;
+            font-weight: bold;
+        }
+
+        .logo-text h1 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        .nav {
+            background: rgba(0,0,0,0.1);
+            padding: 0;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav li {
+            margin: 0;
+        }
+
+        .nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+            transition: background 0.3s;
+            border-radius: 0;
+        }
+
+        .nav a:hover, .nav a.active {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%234a7c59" width="1200" height="600"/><circle fill="%23ffffff" opacity="0.1" cx="200" cy="150" r="80"/><circle fill="%23ffffff" opacity="0.1" cx="800" cy="400" r="120"/><circle fill="%23ffffff" opacity="0.05" cx="1000" cy="200" r="100"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #ff6b35;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #2c5530;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2c5530;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: #2c5530;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #4a7c59;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4a7c59, #2c5530);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #2c5530;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Statistics Section */
+        .stats {
+            background: linear-gradient(135deg, #2c5530, #4a7c59);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #90ee90;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: #4a7c59;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .donation-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .donation-section h3 {
+            color: #2c5530;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .donation-amounts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .amount-btn {
+            padding: 15px;
+            border: 2px solid #4a7c59;
+            background: white;
+            color: #4a7c59;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .amount-btn:hover, .amount-btn.active {
+            background: #4a7c59;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #90ee90;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #90ee90;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            color: #999;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav ul {
+                flex-direction: column;
+            }
+
+            .nav a {
+                text-align: center;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .donation-amounts {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <div class="contact-info">
+                        <span>📞 +92-XXX-XXXXXXX | ✉️ info@falah-e-millat.org</span>
+                    </div>
+                    <div class="language-selector">
+                        <a href="#" class="active">English</a>
+                        <a href="#">اردو</a>
+                        <a href="#">हिंदी</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="main-header">
+                <div class="logo">
+                    <div class="logo-icon">SM</div>
+                    <div class="logo-text">
+                        <h1>SM-Falah-e-Millat Trust</h1>
+                        <p>Serving Humanity with Compassion</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="nav">
+            <div class="container">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Activities</a></li>
+                    <li><a href="#donation">Online Donation</a></li>
+                    <li><a href="#gallery">Photo Gallery</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Empowering Communities Through Service</h2>
+            <p>Join us in our mission to provide healthcare, education, and social welfare services to those who need it most. Together, we can build a better tomorrow.</p>
+            <div class="cta-buttons">
+                <a href="#donation" class="btn">Donate Now</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About SM-Falah-e-Millat Trust</h2>
+                <p>Dedicated to serving humanity through comprehensive social welfare programs</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>SM-Falah-e-Millat Trust is committed to uplifting underprivileged communities by providing essential services in healthcare, education, and social welfare. We believe that every individual deserves access to quality care and opportunities for growth.</p>
+                    <p>Our organization focuses on sustainable development programs that create lasting positive impact in the communities we serve. Through dedicated volunteers and generous donors, we continue to expand our reach and effectiveness.</p>
+                    <a href="#services" class="btn">Explore Our Work</a>
+                </div>
+                <div class="about-image">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%234a7c59' width='400' height='300'/><circle fill='%23ffffff' opacity='0.2' cx='100' cy='80' r='40'/><circle fill='%23ffffff' opacity='0.2' cx='300' cy='180' r='60'/><rect fill='%23ffffff' opacity='0.3' x='150' y='120' width='100' height='60' rx='10'/><text x='200' y='155' text-anchor='middle' fill='%232c5530' font-size='16' font-weight='bold'>Community Service</text></svg>" alt="Community Service">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Activities</h2>
+                <p>Comprehensive programs designed to address the diverse needs of our community</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏥</div>
+                    <h3>Healthcare Services</h3>
+                    <p>Free medical camps, general OPD services, specialized consultations, and emergency medical assistance for underprivileged communities.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📚</div>
+                    <h3>Education Programs</h3>
+                    <p>Educational support, scholarships, vocational training, and literacy programs to empower individuals through knowledge.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤝</div>
+                    <h3>Social Welfare</h3>
+                    <p>Community development initiatives, orphan care, widow support, and rehabilitation programs for those in need.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🍽️</div>
+                    <h3>Food Distribution</h3>
+                    <p>Regular food distribution drives, community kitchens, and emergency relief efforts during disasters and crises.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💧</div>
+                    <h3>Clean Water Projects</h3>
+                    <p>Installation of water pumps, wells, and water purification systems in underserved areas to ensure access to clean water.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Housing Support</h3>
+                    <p>Shelter construction, home repairs, and temporary housing assistance for displaced families and those in need.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>25,000+</h3>
+                    <p>People Served</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Medical Camps</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1,200+</h3>
+                    <p>Students Supported</p>
+                </div>
+                <div class="stat-item">
+                    <h3>15+</h3>
+                    <p>Years of Service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Donation Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Contact us to learn more about our work or to get involved</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Address:</strong><br>
+                            123 Service Street, Community Area<br>
+                            City, State - 12345
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong>Phone:</strong><br>
+                            +92-XXX-XXXXXXX<br>
+                            +92-XXX-XXXXXXX
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <strong>Email:</strong><br>
+                            info@falah-e-millat.org<br>
+                            contact@falah-e-millat.org
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <strong>Office Hours:</strong><br>
+                            Mon - Fri: 9:00 AM - 6:00 PM<br>
+                            Sat: 9:00 AM - 2:00 PM
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="donation" class="donation-section">
+                    <h3>Make a Donation</h3>
+                    <p>Your contribution helps us continue our mission of serving those in need.</p>
+                    <div class="donation-amounts">
+                        <button class="amount-btn" onclick="selectAmount(this, 100)">$100</button>
+                        <button class="amount-btn" onclick="selectAmount(this, 250)">$250</button>
+                        <button class="amount-btn" onclick="selectAmount(this, 500)">$500</button>
+                    </div>
+                    <input type="number" placeholder="Enter custom amount" style="width: 100%; padding: 15px; margin: 15px 0; border: 2px solid #ddd; border-radius: 10px; font-size: 16px;">
+                    <a href="#" class="btn" style="display: block; margin-top: 20px;">Donate Securely</a>
+                    <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">Secure payment processing. Your donation is tax-deductible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SM-Falah-e-Millat Trust</h3>
+                    <p>Dedicated to serving humanity through compassionate care and comprehensive social welfare programs.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Our Activities</a></li>
+                        <li><a href="#donation">Donate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#">Healthcare</a></li>
+                        <li><a href="#">Education</a></li>
+                        <li><a href="#">Social Welfare</a></li>
+                        <li><a href="#">Emergency Relief</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <p>📧 info@falah-e-millat.org</p>
+                    <p>📞 +92-XXX-XXXXXXX</p>
+                    <p>Follow us on social media for updates</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SM-Falah-e-Millat Trust. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav a');
+            
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.pageYOffset >= sectionTop) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Donation amount selection
+        function selectAmount(button, amount) {
+            document.querySelectorAll('.amount-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        }
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animation to service cards and other elements
+        document.querySelectorAll('.service-card, .stat-item, .contact-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
